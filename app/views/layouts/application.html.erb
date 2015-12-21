@@ -10,7 +10,7 @@
 </head>
 <body>
  <header id="main_navigation" class="clearfix">
-  <a href="#" class="name">Plugin Energy</a>
+   <%= link_to "Plugin Energy", root_path, class: "name" %>
   <nav>
    <%= link_to "Articles", posts_path %>
    <a href="#">Projects</a>
@@ -18,6 +18,13 @@
   </nav>
  </header>
 <%= yield %>
-
+ <footer id="main_footer">
+  <p class="copyright">	&#169; 2015 Plugin Energy - Feel Africa's Pulse.</p>
+  <nav>
+   <a href="http://facebook.com/getpluginpulse" target="_blank"><i class="fa fa-facebook-square"></i></a>
+   <a href="http://twitter.com/getpluginpulse" target="_blank"><i class="fa fa-twitter-square"></i></a>
+   <a href="http://linkedin.com/getpluginpulse" target="_blank"><i class="fa fa-linkedin-square"></i></a>
+  </nav>
+ </footer>
 </body>
 </html>
