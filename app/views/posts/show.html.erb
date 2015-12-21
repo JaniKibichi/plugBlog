@@ -18,10 +18,13 @@
    <!--Google Plus-->
    <a onclick="javascript:window.open('https://plus.google.com/share?url=<%= url_for([@post, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-google-plus"></i></a>
    <!--LinkedIn-->
-   <a onclick="javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= url_for([@post, {only_path: false}]) %>&amp;title=<%= @post.title %>&amp;summary=<%= truncate(post.content, :length=>140) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-linkedin"></i></a>
+   <a onclick="javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= url_for([@post, {only_path: false}]) %>&amp;title=<%= @post.title %>&amp;summary=<%= truncate(@post.content, :length=>140) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-linkedin"></i></a>
   </div>
   <hr>
+
+  <%= render 'disqus' %> 
  </div> 
+
 
 <br>
 <br>
