@@ -173,6 +173,7 @@ input[type="submit"], .button{
 	color: $dark;
 	text-decoration: none;
 	padding: 1em 2em;
+        margin-bottom: 3em;
 	&:hover{
 		border: 2px solid $highlight;
 		color: $highlight;
