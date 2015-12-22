@@ -14,7 +14,7 @@
   <nav>
    <%= link_to "Articles", posts_path %>
    <%= link_to "Projects", projects_path %>
-   <%= link_to "Projects", projects_path %>
+   <%= link_to "Contacts", contacts_path %>
     <% if user_signed_in? %>
      <%= link_to "Account", edit_user_registration_path %>                             
      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
