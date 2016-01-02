@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222134405) do
+ActiveRecord::Schema.define(version: 20160102083928) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -29,23 +29,35 @@ ActiveRecord::Schema.define(version: 20151222134405) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "slug"
+    t.string   "plug_thumbnail_file_name"
+    t.string   "plug_thumbnail_content_type"
+    t.integer  "plug_thumbnail_file_size"
+    t.datetime "plug_thumbnail_updated_at"
+    t.integer  "user_id"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "link"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "slug"
+    t.string   "proj_thumbnail_file_name"
+    t.string   "proj_thumbnail_content_type"
+    t.integer  "proj_thumbnail_file_size"
+    t.datetime "proj_thumbnail_updated_at"
+    t.integer  "user_id"
   end
 
   add_index "projects", ["slug"], name: "index_projects_on_slug", unique: true
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -60,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151222134405) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -3,6 +3,10 @@
    <p class="date"><%= @post.created_at.strftime('%A, %B %d')%></p>
    <h1><%= @post.title %></h1>
    <hr>
+   <div id="episode_content">
+    <%= image_tag @post.plug_thumbnail.url(:large), class: "current_episode_thumbnail" %>
+    <hr/>
+   </div>
   </header>
 
   <div id="content">
@@ -10,21 +14,21 @@
   </div>
   <% if user_signed_in? %>
    <div id="admin_links">
-    <%= link_to "Edit Article", edit_post_path(@post) %>
-    <%= link_to "Delete Article", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this article?"} %>
+    <%= link_to "Edit Article", edit_user_post_path(current_user,@post) %>
+    <%= link_to "Delete Article", user_post_path(current_user,@post), method: :delete, data: {confirm: "Are you sure you want to delete this article?"} %>
    </div>
   <% end %>
   <hr>
   <div id="share_box">
    <p>Share <%= @post.title %></p>
    <!--Twitter-->
-   <a onclick="javascript:window.open('http://twitter.com/share?text=<%= @post.title %> by @getplugin - &amp;url=<%= url_for([@post, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-twitter"></i></a>
+   <a onclick="javascript:window.open('http://twitter.com/share?text=<%= @post.title %> by @getplugin - &amp;url=<%= url_for(user_post_path(4,@post)) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-twitter"></i></a>
    <!--Facebook-->
-   <a onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= url_for([@post, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-facebook"></i></a>
+   <a onclick="javascript:window.open('http://www.facebook.com/sharer.php?u=<%= url_for(user_post_path(4,@post)) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-facebook"></i></a>
    <!--Google Plus-->
-   <a onclick="javascript:window.open('https://plus.google.com/share?url=<%= url_for([@post, {only_path: false}]) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-google-plus"></i></a>
+   <a onclick="javascript:window.open('https://plus.google.com/share?url=<%= url_for(user_post_path(4,@post)) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-google-plus"></i></a>
    <!--LinkedIn-->
-   <a onclick="javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= url_for([@post, {only_path: false}]) %>&amp;title=<%= @post.title %>&amp;summary=<%= truncate(@post.content, :length=>140) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-linkedin"></i></a>
+   <a onclick="javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=<%= url_for(user_post_path(4,@post)) %>&amp;title=<%= @post.title %>&amp;summary=<%= truncate(@post.content, :length=>140) %>', '_blank', 'width=800, height=500, top=200, left=300');void(0);"><i class="fa fa-linkedin"></i></a>
   </div>
   <hr>
 

@@ -1,0 +1,14 @@
+<div class="wrapper wrapper_padding clearfix">
+
+<div class="homepage_content post_wrapper skinny_wrapper">
+  <h2>Articles we've written</h2>
+  <hr>
+
+  <% @allposts.each do |post| %>
+   <h3><a href="#"><%= link_to post.title, user_post_path(4, post) %></a></h3>
+   <p class="date"><%= post.created_at.strftime("%A, %b %d") %></p>
+  <% end %>
+</div>
+</div>
+
+<%= will_paginate @allposts %>

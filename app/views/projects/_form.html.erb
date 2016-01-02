@@ -1,4 +1,4 @@
-<%= form_for @project do |f| %>
+<%= form_for ([@user, @project]) do |f| %>
  <% if @project.errors.any? %>
   <h2><%= pluralize(@project.errors.count, "error") %> prevented this project from saving:</h2>
   <ul>
@@ -10,6 +10,12 @@
 
   <%= f.label :title %> <br>
   <%= f.text_field :title %> 
+
+  <br>
+  <br>
+
+  <%= f.label :proj_thumbnail %> <br>
+  <%= f.file_field :proj_thumbnail %>
 
   <br>
   <br>

@@ -1,8 +1,13 @@
  <div id="post_show_content" class="skinny_wrapper wrapper_padding">
   <header>
-   <p class="date"><%= @project.created_at.strftime('%A, %B %d')%></p>
+   <p class="date"><%= @project.created_at.strftime('%A, %B %d')%>
+</p>
    <h1><%= @project.title %></h1>
    <hr>
+   <div id="episode_content">
+    <%= image_tag @project.proj_thumbnail.url(:large), class: "current_episode_thumbnail" %>
+    <hr/>
+   </div>
   </header>
 
   <div id="content">
@@ -15,8 +20,8 @@
   </div>
 <% if user_signed_in? %>
  <div id="admin_links">
-  <%= link_to "Edit Project", edit_project_path(@project) %>
-  <%= link_to "Delete Project", project_path(@project), method: :delete, data: {confirm: "Are you sure you want to delete this project?"} %>
+  <%= link_to "Edit Project", edit_user_project_path(current_user, @project) %>
+  <%= link_to "Delete Project", user_project_path(current_user, @project), method: :delete, data: {confirm: "Are you sure you want to delete this project?"} %>
  </div>
 <% end %>
  

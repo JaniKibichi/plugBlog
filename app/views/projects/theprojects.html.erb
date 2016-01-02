@@ -1,0 +1,12 @@
+<div class="wrapper wrapper_padding clearfix">
+ <div class="homepage_content post_wrapper skinny_wrapper">
+   <h2>What we are Working on</h2>
+   <hr>
+  <% @allprojects.each do |project| %>
+    <h3><a href="#"><%= link_to project.title, user_project_path(4, project) %></a></h3>
+    <p class="date"><%= project.created_at.strftime("%A, %b %d") %></p>
+  <% end %>
+ </div>
+</div>
+
+<%= will_paginate @allprojects %>

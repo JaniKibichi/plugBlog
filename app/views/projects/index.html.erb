@@ -4,7 +4,7 @@
 
     <div class="post">
       <p class="date"><%= project.created_at.strftime("%A, %b %d") %></p>
-      <h2><a href="#"><%= link_to project.title, project %></a></h2>
+      <h2><a href="#"><%= link_to project.title, user_project_path(current_user, project) %></a></h2>
       <hr>
     </div>
 
